@@ -21,13 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('categorias', CategoriaController::class);
     Route::resource('productos', ProductoController::class);
     Route::resource('clientes', ClienteController::class); 
-    Route::resource('ventas', VentaController::class); 
-
-    Route::middleware(['auth', 'role:admin'])->group(function () {
-        Route::resource('usuarios', UserController::class);
-    });
+    Route::resource('ventas', VentaController::class);
     
-   
     Route::get('/dashboard', function(){
         return view('dashboard');
     })->name('dashboard');
